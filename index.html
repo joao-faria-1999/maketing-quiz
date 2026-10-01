@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marketing Digital — Métricas e KPIs</title>
+<style>
+:root{
+  --bg:#ffffff; --card:#faf7f5; --text:#1a1a1a; --muted:#6b6b6b;
+  --accent:#e8402b; --accent2:#ff7a3d; --pink:#d6336c; --teal:#0f9b8e;
+  --border:#e8e2df; --ok:#1f9254; --bad:#c62828;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15120f; --card:#211c18; --text:#f1ece8; --muted:#a79e97; --border:#352e29;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15120f; --card:#211c18; --text:#f1ece8; --muted:#a79e97; --border:#352e29;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.45;}
+.wrap{max-width:860px;margin:0 auto;padding:24px 18px 60px;}
+header{margin-bottom:18px;}
+h1{font-size:1.5rem;margin:0 0 4px;color:var(--accent);}
+.sub{color:var(--muted);font-size:.95rem;margin:0;}
+.tabs{display:flex;gap:8px;margin:20px 0;border-bottom:2px solid var(--border);}
+.tab{flex:1;padding:10px;border:none;background:none;color:var(--muted);font-weight:700;font-size:1rem;cursor:pointer;border-bottom:3px solid transparent;}
+.tab.active{color:var(--accent);border-color:var(--accent);}
+.panel{display:none;}
+.panel.active{display:block;animation:fade .25s ease;}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:14px 0;}
+.obj{background:var(--card);border-left:4px solid var(--accent);border-radius:8px;padding:12px 16px;margin:14px 0;}
+h2{font-size:1.15rem;margin:22px 0 10px;}
+h3{font-size:1rem;margin:0 0 6px;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:560px){.grid{grid-template-columns:1fr;}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;}
+.card h3{color:var(--accent2);}
+.metric-tag{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:20px;margin-bottom:6px;}
+.m-metrica{background:#ffe3cc;color:#8a4b00;}
+.m-kpi{background:#ffd6e3;color:#99124a;}
+[data-theme="dark"] .m-metrica, :root:not([data-theme="light"]) .m-metrica{background:#4a2c0c;color:#ffcf9e;}
+[data-theme="dark"] .m-kpi, :root:not([data-theme="light"]) .m-kpi{background:#4a1530;color:#ffb3d1;}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin:18px 0;}
+.quiz p.q{font-weight:700;margin-top:0;}
+.opts{display:grid;gap:8px;margin-top:10px;}
+.opt{text-align:left;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text);cursor:pointer;font-size:.95rem;}
+.opt:hover{border-color:var(--accent2);}
+.opt.correct{background:#e3f5e8;border-color:var(--ok);color:#0d3d1f;}
+.opt.wrong{background:#fde6e6;border-color:var(--bad);color:#5c1414;}
+.fb{margin-top:10px;font-size:.9rem;font-weight:600;display:none;}
+.case{display:flex;gap:16px;flex-wrap:wrap;}
+.case>div{flex:1;min-width:220px;}
+.chip{display:block;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:8px 10px;margin-bottom:8px;font-size:.88rem;}
+.classify{display:grid;gap:10px;margin-top:10px;}
+.citem{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px 14px;}
+.citem span.txt{font-size:.92rem;}
+.toggle{display:flex;gap:6px;}
+.toggle button{padding:6px 10px;font-size:.78rem;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;}
+.toggle button.sel{background:var(--accent);color:#fff;border-color:var(--accent);}
+.checkbtn{margin-top:14px;padding:10px 18px;border:none;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer;}
+.citem.right{border-color:var(--ok);}
+.citem.wrong{border-color:var(--bad);}
+footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:30px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>📊 Marketing Digital</h1>
+  <p class="sub">Métricas e análise de dados digitais</p>
+</header>
+
+<div class="tabs">
+  <button class="tab active" data-tab="a1">Aula 1</button>
+  <button class="tab" data-tab="a2">Aula 2</button>
+</div>
+
+<!-- AULA 1 -->
+<section id="a1" class="panel active">
+  <div class="obj"><strong>Objetivo:</strong> Compreender a importância das métricas no marketing digital como forma de apoiar na análise do sucesso das campanhas.</div>
+
+  <h2>Construindo o conceito</h2>
+  <div class="box">
+    <p>Com o surgimento da internet, o marketing e sua forma de análise sofreram mudanças significativas: agora é possível <strong>rastrear</strong> a experiência do usuário com o conteúdo, com a marca e com a mídia.</p>
+    <p>As métricas de marketing digital permitem uma análise em tempo real das ações desenvolvidas, compreendendo o comportamento do usuário nas mídias e plataformas digitais.</p>
+  </div>
+
+  <h2>Métricas × KPI</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Métricas</h3>
+      <p>Medidas que representam qualquer dado passível de quantificação. Podem se tornar indicadores relevantes para o planejamento estratégico.</p>
+      <div class="chip">Número de visitantes de um site</div>
+      <div class="chip">Taxa de cliques (CTR)</div>
+      <div class="chip">Tempo médio de permanência na página</div>
+    </div>
+    <div class="card">
+      <h3>KPI</h3>
+      <p>Avaliam de forma quantitativa as ações, estratégias e processos internos. Um KPI deve estar diretamente ligado a um objetivo da empresa.</p>
+      <div class="chip"><em>Aumentar vendas</em> → Taxa de conversão</div>
+      <div class="chip"><em>Gerar leads</em> → Conversão em landing pages</div>
+      <div class="chip"><em>Melhorar ROI</em> → Aumentar o ROI investido</div>
+    </div>
+  </div>
+
+  <div class="quiz" id="quiz1">
+    <p class="q">Pause e responda: qual é a principal função das métricas no marketing digital?</p>
+    <div class="opts">
+      <button class="opt" data-correct="false">Criar campanhas publicitárias.</button>
+      <button class="opt" data-correct="true">Medir e analisar o desempenho.</button>
+      <button class="opt" data-correct="false">Definir a identidade da marca.</button>
+      <button class="opt" data-correct="false">Estabelecer metas de vendas.</button>
+    </div>
+    <p class="fb"></p>
+  </div>
+</section>
+
+<!-- AULA 2 -->
+<section id="a2" class="panel">
+  <div class="obj"><strong>Objetivo:</strong> Conhecer as principais métricas utilizadas no marketing digital para apoiar na análise do sucesso das campanhas.</div>
+
+  <h2>Principais métricas do marketing digital</h2>
+  <div class="grid">
+    <div class="card"><h3>Visualização da página</h3><p>Mensura o quanto um anúncio é visto — número de vezes que uma página da web é acessada.</p></div>
+    <div class="card"><h3>Taxa de cliques (CTR)</h3><p>Mensura a eficácia de um anúncio: número de cliques em relação ao número de vezes que ele foi exibido.</p></div>
+    <div class="card"><h3>Page views</h3><p>Identifica quantas vezes a página é acessada — número de vezes que uma página da web é acessada por visitante.</p></div>
+    <div class="card"><h3>Custo por clique (CPC)</h3><p>Mensura a eficácia de custo de um anúncio — custo dividido pelo número de cliques gerados.</p></div>
+  </div>
+
+  <h2>Exemplo de campanha</h2>
+  <div class="box case">
+    <div>
+      <h3>Métricas utilizadas</h3>
+      <div class="chip">CTR de 2% (200 cliques em 10.000 impressões)</div>
+      <div class="chip">CPC de R$ 1,20</div>
+      <div class="chip">Page views de 5 por pessoa</div>
+    </div>
+    <div>
+      <h3>Análise</h3>
+      <p style="font-size:.9rem">O anúncio atrai atenção, mas pode precisar de ajustes. O CPC está dentro do orçamento — vale checar se o retorno compensa. Os page views sugerem interesse real nos produtos. Próximo passo: otimizar o anúncio e a página para melhorar a CTR.</p>
+    </div>
+  </div>
+
+  <div class="quiz" id="quiz2">
+    <p class="q">Pause e responda: qual métrica mostra a porcentagem de pessoas que clicam em um anúncio em relação ao total de vezes que ele é exibido?</p>
+    <div class="opts">
+      <button class="opt" data-correct="true">Taxa de cliques.</button>
+      <button class="opt" data-correct="false">Page views.</button>
+      <button class="opt" data-correct="false">Custo por clique.</button>
+      <button class="opt" data-correct="false">Visualização de página.</button>
+    </div>
+    <p class="fb"></p>
+  </div>
+
+  <h2>Atividade: Métrica ou KPI?</h2>
+  <p style="color:var(--muted);font-size:.9rem;margin-top:-6px">Classifique cada item e depois clique em "Conferir".</p>
+  <div class="classify" id="classify">
+    <div class="citem" data-answer="kpi"><span class="txt">1. Taxa de crescimento mensal de seguidores nas redes sociais.</span><div class="toggle"><button data-v="metrica">Métrica</button><button data-v="kpi">KPI</button></div></div>
+    <div class="citem" data-answer="metrica"><span class="txt">2. Número de visitas no site durante uma semana.</span><div class="toggle"><button data-v="metrica">Métrica</button><button data-v="kpi">KPI</button></div></div>
+    <div class="citem" data-answer="kpi"><span class="txt">3. Taxa de conversão de leads em clientes, no último mês.</span><div class="toggle"><button data-v="metrica">Métrica</button><button data-v="kpi">KPI</button></div></div>
+    <div class="citem" data-answer="metrica"><span class="txt">4. Número de e-mails enviados em uma campanha de marketing.</span><div class="toggle"><button data-v="metrica">Métrica</button><button data-v="kpi">KPI</button></div></div>
+    <div class="citem" data-answer="kpi"><span class="txt">5. Nível de satisfação do cliente (avaliado por pesquisas).</span><div class="toggle"><button data-v="metrica">Métrica</button><button data-v="kpi">KPI</button></div></div>
+  </div>
+  <button class="checkbtn" id="checkbtn">Conferir respostas</button>
+  <p class="fb" id="classifyfb"></p>
+</section>
+
+<footer>Baseado no material "Marketing digital — Métricas e análise de dados digitais" · SEDUC-SP</footer>
+</div>
+
+<script>
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById(t.dataset.tab).classList.add('active');
+}));
+
+document.querySelectorAll('.quiz').forEach(q=>{
+  const opts=q.querySelectorAll('.opt'); const fb=q.querySelector('.fb'); let answered=false;
+  opts.forEach(o=>o.addEventListener('click',()=>{
+    if(answered) return; answered=true;
+    opts.forEach(x=>x.disabled=true);
+    if(o.dataset.correct==='true'){o.classList.add('correct'); fb.textContent='✅ Isso mesmo!'; fb.style.color='var(--ok)';}
+    else{o.classList.add('wrong'); fb.textContent='❌ Não é essa. A correta está destacada.'; fb.style.color='var(--bad)';
+      opts.forEach(x=>{if(x.dataset.correct==='true')x.classList.add('correct');});}
+    fb.style.display='block';
+  }));
+});
+
+document.querySelectorAll('#classify .toggle button').forEach(b=>b.addEventListener('click',()=>{
+  const item=b.closest('.citem');
+  item.querySelectorAll('.toggle button').forEach(x=>x.classList.remove('sel'));
+  b.classList.add('sel'); item.dataset.chosen=b.dataset.v;
+  item.classList.remove('right','wrong');
+}));
+
+document.getElementById('checkbtn').addEventListener('click',()=>{
+  let correct=0, total=0;
+  document.querySelectorAll('#classify .citem').forEach(item=>{
+    total++;
+    if(!item.dataset.chosen) return;
+    if(item.dataset.chosen===item.dataset.answer){item.classList.add('right'); correct++;}
+    else item.classList.add('wrong');
+  });
+  const fb=document.getElementById('classifyfb');
+  fb.style.display='block'; fb.style.color='var(--text)';
+  fb.textContent='Você acertou '+correct+' de '+total+'.';
+});
+</script>
+</body>
+</html>
